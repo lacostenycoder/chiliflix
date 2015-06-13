@@ -48,7 +48,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry'
   gem 'byebug'
-
+  gem 'dotenv-rails'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
