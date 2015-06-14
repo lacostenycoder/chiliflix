@@ -9,15 +9,18 @@ class Chill < ActiveRecord::Base
     results = []
     skip = false
     unless movie
-      movies = Tmdb::Genre.find(genre)
-      current_page = 1
-      while results.size < 5 || skip
-        page = current_page > 1 ? movies.get_page(current_page) : movies
-        skip == true if page.results.nil?
-        page.results.each do |m|
-          results << m if m["vote_average"] >= 8.0 && m["release_date"].to_datetime
+      begin
+        movies = Tmdb::Genre.find(genre)
+        current_page = 1
+        while results.size < 5 || skip
+          page = current_page > 1 ? movies.get_page(current_page) : movies
+          skip == true if page.results.nil?
+          page.results.each do |m|
+            results << m if m["vote_average"] >= 8.0 && m["release_date"].to_datetime
+          end
+          current_page += 1
         end
-        current_page += 1
+      rescue
       end
     end
     movie = results.sample if results.present?
