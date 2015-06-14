@@ -1,28 +1,14 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple Rails app for interfacing with Firebase.io infrustructure.
+Developed for the 2015 Makerbot Thingeverse Hack-a-thon.
 
-Things you may want to cover:
+The app will post a film recommendation from themoviedb.org based on time of day
+and frequency of refrigerator raids.  The interface is with two Arduino devices and
+and LED screen readout which will display the movie title and synopsis.
 
 * Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+2.1.2
 
 
-Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.

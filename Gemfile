@@ -29,6 +29,7 @@ gem 'haml-rails'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'themoviedb'
+gem 'firebase'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
