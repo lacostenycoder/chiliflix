@@ -7,11 +7,13 @@ class Chill < ActiveRecord::Base
     found = top.select{|e| e["genre_ids"].include? lookup_genre["id"]} # && e["release_date"].to_datetime < Time.now - 90.days}
     movie = nil
     results = []
+    skip = false
     unless movie
       movies = Tmdb::Genre.find(genre)
       current_page = 1
-      while results.size < 10
+      while results.size < 5 || skip
         page = current_page > 1 ? movies.get_page(current_page) : movies
+        skip == true if page.results.empty?
         page.results.each do |m|
           results << m if m["vote_average"] >= 8.0 && m["release_date"].to_datetime
         end
