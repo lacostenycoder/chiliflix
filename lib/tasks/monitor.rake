@@ -2,7 +2,6 @@ namespace :monitor do
   desc 'MONITOR CLOUD'
   task :chills => :environment do
 
-    require 'pry'
     require 'uri'
     firebase = Firebase::Client.new(ENV['FIREBASE_URI'], ENV['FIREBASE_SECRET'])
     chills = firebase.get("chill")
@@ -21,7 +20,7 @@ namespace :monitor do
     end
 
     chill_tracker.save if chill_tracker.changed?
-    
+
     if chill_tracker.changed
       firebase = Firebase::Client.new(ENV['FIREBASE_URI'], ENV['FIREBASE_SECRET'])
       chill = Chill.new
